@@ -1,13 +1,21 @@
+import PropTypes from "prop-types";
+import { SectionBox, SectionTitle } from "./Section.styled";
+
 export default function Section({ title, children }) {
   return (
-    <section>
-      <h2>{title}</h2>
+    <SectionBox>
+      <SectionTitle>{title}</SectionTitle>
       {children}
-    </section>
+    </SectionBox>
   );
 }
 
 Section.defaultProps = {
   title: "",
   children: [],
+};
+
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
 };

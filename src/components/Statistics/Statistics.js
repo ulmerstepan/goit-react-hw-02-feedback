@@ -1,27 +1,42 @@
+import PropTypes from "prop-types";
+import {
+  StatisticList,
+  StatisticItem,
+  StatisticItemText,
+  StatisticItemValue,
+} from "./Statistics.styled";
+
 export default function Statistics({ options, total, positivePercentage }) {
   return (
-    <ul>
+    <StatisticList>
       {Object.entries(options).map(([key, value]) => {
         return (
-          <li key={key}>
-            <p>
-              {key}: <span>{value}</span>
-            </p>
-          </li>
+          <StatisticItem key={key}>
+            <StatisticItemText>
+              {key}: <StatisticItemValue>{value}</StatisticItemValue>
+            </StatisticItemText>
+          </StatisticItem>
         );
       })}
 
-      <li>
-        <p>
-          Total: <span>{total}</span>
-        </p>
-      </li>
+      <StatisticItem>
+        <StatisticItemText>
+          Total: <StatisticItemValue>{total}</StatisticItemValue>
+        </StatisticItemText>
+      </StatisticItem>
 
-      <li>
-        <p>
-          Positive feedback: <span>{positivePercentage}%</span>
-        </p>
-      </li>
-    </ul>
+      <StatisticItem>
+        <StatisticItemText>
+          Positive feedback:{" "}
+          <StatisticItemValue>{positivePercentage}%</StatisticItemValue>
+        </StatisticItemText>
+      </StatisticItem>
+    </StatisticList>
   );
 }
+
+Statistics.propTypes = {
+  options: PropTypes.objectOf(PropTypes.number),
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
