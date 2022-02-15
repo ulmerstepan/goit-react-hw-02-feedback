@@ -7,7 +7,7 @@ export default function FeedbackOptions({ options, onBtnClick }) {
       {Object.keys(options).map((option) => {
         return (
           <BtnListItem key={option}>
-            <OptionBtn type="button" onClick={onBtnClick}>
+            <OptionBtn type="button" onClick={() => onBtnClick(option)}>
               {option}
             </OptionBtn>
           </BtnListItem>

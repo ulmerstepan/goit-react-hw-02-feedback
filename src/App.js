@@ -13,9 +13,7 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = (event) => {
-    const option = event.currentTarget.textContent;
-
+  onLeaveFeedback = (option) => {
     this.setState((prevState) => ({ [option]: (prevState[option] += 1) }));
   };
 
